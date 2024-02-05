@@ -72,6 +72,28 @@ docker volume create mongodata
 # Menghubungkan volume ke container
 docker container create --name mongodata --mount "type=volume,source=mongodata,destination=/data/db" --publish 27019:27017 --env MONGO_INITDB_ROOT_USERNAME:root --env MONGO_INITDB_ROOT_PASSWORD:example mongo:latest
 
+# Melihat Network
+docker network ls
+
+# Membuat Network
+docker network create --driver bridge contohnetwork
+
+# Menghapus Network
+docker network rm contohnetwork
+
+# Menghubungkan antar container menggunakan network
+# pertama buat network
+docker network --driver bridge mongonetwork
+# kedua buat container mongodb
+docker container create --name mongodb --network mongonetwork --env MONGO_INITDB_ROOT_USERNAME:root --env MONGO_INITDB_ROOT_PASSWORD:example mongo:latest
+# ketiga pull mongo-express, karena ingin melihat gui mongodb menggunakan mongoexpress
+docker image pull mongo-express:latest
+# keempat hubungkan mongo express ke mongonetwork
+docker container create --name mongoexpress --network mongonetwork --publish 8081:8081 --env ME_CONFIG_MONGO_URL=mongodb://root:example@mongodb:27017/
+# terakhir start container mongodb dan juga mongo express
+docker container start mongodb
+docker container start mongoexpress
+
 # Untuk melihat informasi secara detail baik untuk volume, network, image dan container
 docker image inspect node
 
