@@ -108,5 +108,12 @@ DockerFile
 Docker build -t roronoa52/nama_aplikasi:version folder
 contoh: docker buid -t roronoa52/from:1.0.0 from
 
+# RUN merupakan perintah yang dijalankan ketika pada saat build image saja, ketika sudah dibuatkan kontainer, run tidak dijalankan lagi
+RUN mkdir hello
 
+# progess berguna untuk menampilkan proses build
+Docker build -t roronoa52/nama_aplikasi:version folder --progress=plain
+
+# --no-cache berguna untuk supaya tidak menggunakan cache
+Docker build -t roronoa52/nama_aplikasi:version folder --no-cache
 
