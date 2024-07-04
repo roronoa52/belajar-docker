@@ -99,3 +99,14 @@ docker image inspect node
 
 # Untuk menghapus hal yang tidak di gunakan lagi seperti stop container dll
 docker container prune
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+DockerFile
+
+#build dockerfile
+Docker build -t roronoa52/nama_aplikasi:version folder
+contoh: docker buid -t roronoa52/from:1.0.0 from
+
+
+
