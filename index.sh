@@ -13,7 +13,7 @@ docker container ls -a
 # melihat semua container yang berjalan
 docker container ls
 
-# melihat semua container yang berjalan
+# membuat container
 docker container create --name contohredis node:lts
 
 # menjalankan container
