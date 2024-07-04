@@ -117,3 +117,5 @@ Docker build -t roronoa52/nama_aplikasi:version folder --progress=plain
 # --no-cache berguna untuk supaya tidak menggunakan cache
 Docker build -t roronoa52/nama_aplikasi:version folder --no-cache
 
+# CMD atau command merupakan perintah yang dijalankan ketika container di jalankan
+CMD cat "hello/world.txt"
