@@ -122,3 +122,6 @@ CMD cat "hello/world.txt"
 
 # Mengcopy file
 ADD source destination #contohnya ADD text/*.txt hello
+
+# Membuat env untuk image
+ENV APP_PORT=8080
