@@ -119,3 +119,6 @@ Docker build -t roronoa52/nama_aplikasi:version folder --no-cache
 
 # CMD atau command merupakan perintah yang dijalankan ketika container di jalankan
 CMD cat "hello/world.txt"
+
+# Mengcopy file
+ADD source destination #contohnya ADD text/*.txt hello
